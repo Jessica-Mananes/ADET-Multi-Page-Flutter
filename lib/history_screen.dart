@@ -33,8 +33,6 @@ class _HistoryScreenState extends State<HistoryScreen>
 
     return Scaffold(
       backgroundColor: kCream,
-
-      // ── AppBar with tabs ──
       appBar: AppBar(
         backgroundColor: kNavy,
         foregroundColor: kWhite,
@@ -56,7 +54,6 @@ class _HistoryScreenState extends State<HistoryScreen>
         ),
       ),
 
-      // ── TabBarView ──
       body: Center(
         child: Container(
           constraints: const BoxConstraints(maxWidth: 600),
@@ -73,7 +70,6 @@ class _HistoryScreenState extends State<HistoryScreen>
   }
 
   Widget _buildList(List<Item> items, {required bool isDonated}) {
-    // Empty state
     if (items.isEmpty) {
       return Center(
         child: Column(
@@ -93,7 +89,6 @@ class _HistoryScreenState extends State<HistoryScreen>
       );
     }
 
-    // ── SingleChildScrollView ──
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -106,7 +101,6 @@ class _HistoryScreenState extends State<HistoryScreen>
   }
 }
 
-// ── History Card ──
 class _HistoryCard extends StatelessWidget {
   final Item item;
   final bool isDonated;
@@ -134,12 +128,8 @@ class _HistoryCard extends StatelessWidget {
       color: kWhite,
       child: Padding(
         padding: const EdgeInsets.all(14),
-
-        // ── Row: thumbnail + info ──
         child: Row(
           children: [
-
-            // Thumbnail
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: item.imageUrl != null
@@ -160,13 +150,10 @@ class _HistoryCard extends StatelessWidget {
             ),
             const SizedBox(width: 14),
 
-            // ── Item info ──
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
-                  // Name + badge in a row
                   Row(
                     children: [
                       Expanded(
@@ -208,7 +195,6 @@ class _HistoryCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
 
-                  // Description
                   Text(
                     item.description,
                     maxLines: 2,
@@ -220,8 +206,6 @@ class _HistoryCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 4),
-
-                  // Category
                   Text(
                     '$emoji  ${item.category}',
                     style: const TextStyle(

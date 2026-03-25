@@ -16,6 +16,6 @@ class UserProfile {
   })  : donatedItems = donatedItems ?? [],
         takenItems = takenItems ?? [];
 
-  // Must donate at least 1 item before taking
+  // need mag donate at least 1 before mag take.
   bool get canTakeItem => donatedItems.isNotEmpty;
 }

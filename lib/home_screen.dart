@@ -15,7 +15,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  // Go to a screen and refresh when we come back
   void _go(Widget screen) async {
     await Navigator.push(context, MaterialPageRoute(builder: (_) => screen));
     setState(() {});
@@ -49,8 +48,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kWhite,
-
-      // ── AppBar ──
       appBar: AppBar(
         backgroundColor: kNavy,
         elevation: 0,
@@ -65,7 +62,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         actions: [
-          // Profile icon button
           IconButton(
             icon: const Icon(Icons.person_outline, color: kWhite),
             onPressed: _onProfile,
@@ -74,18 +70,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
 
-      // ── Body ──
       body: Center(
         child: SingleChildScrollView(
           child: Container(
-            // Max width so it looks good on wide screens
             constraints: const BoxConstraints(maxWidth: 480),
             padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 60),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-
-                // Logo icon
                 Container(
                   width: 1000,
                   height: 100,
@@ -104,7 +96,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 24),
 
-                // App title
                 Text(
                   'TAKE ONE,',
                   style: GoogleFonts.playfairDisplay(
@@ -124,7 +115,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 16),
 
-                // Description
                 const Text(
                   'A community sharing platform. \n Give only what you can, and take only what you need.',
                   textAlign: TextAlign.center,
@@ -136,7 +126,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 24),
 
-                // Rule reminder box
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(14),
@@ -165,7 +154,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 32),
 
-                // Browse button
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton.icon(
@@ -189,7 +177,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 12),
 
-                // Donate button
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton.icon(
@@ -214,7 +201,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 12),
 
-                // Profile button
                 SizedBox(
                   width: double.infinity,
                   child: TextButton.icon(

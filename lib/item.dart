@@ -4,8 +4,8 @@ class Item {
   String description;
   String category;
   String donor;
-  String status; // 'available' or 'taken'
-  String? imageUrl; // base64 string
+  String status; 
+  String? imageUrl; 
   String? takenBy;
 
   Item({

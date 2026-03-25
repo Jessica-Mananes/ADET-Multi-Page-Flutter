@@ -18,14 +18,12 @@ class _SetupScreenState extends State<SetupScreen> {
 
   void _save() {
     if (_formKey.currentState!.validate()) {
-      // Create the user profile
       currentUser = UserProfile(
         username:   _nameCtrl.text.trim(),
         bio:        _bioCtrl.text.trim(),
         joinedDate: DateTime.now(),
       );
 
-      // Go back to home, clear the navigation stack
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (_) => const HomeScreen()),
@@ -46,7 +44,6 @@ class _SetupScreenState extends State<SetupScreen> {
     return Scaffold(
       backgroundColor: kWhite,
 
-      // ── AppBar ──
       appBar: AppBar(
         backgroundColor: kNavy,
         foregroundColor: kWhite,
@@ -68,7 +65,6 @@ class _SetupScreenState extends State<SetupScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
 
-                  // Avatar icon
                   Container(
                     width: 80,
                     height: 80,
@@ -81,7 +77,6 @@ class _SetupScreenState extends State<SetupScreen> {
                   ),
                   const SizedBox(height: 20),
 
-                  // Heading
                   const Text(
                     'Welcome to TOL!',
                     style: TextStyle(
@@ -97,7 +92,6 @@ class _SetupScreenState extends State<SetupScreen> {
                   ),
                   const SizedBox(height: 32),
 
-                  // Username field
                   const Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -139,7 +133,6 @@ class _SetupScreenState extends State<SetupScreen> {
                   ),
                   const SizedBox(height: 20),
 
-                  // Bio field
                   const Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -176,7 +169,6 @@ class _SetupScreenState extends State<SetupScreen> {
                   ),
                   const SizedBox(height: 32),
 
-                  // Save button
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(

@@ -14,7 +14,6 @@ class BrowseScreen extends StatefulWidget {
 class _BrowseScreenState extends State<BrowseScreen> {
 
   void _takeItem(Item item) {
-    // ── GATE: user must have donated first ──
     if (currentUser == null || !currentUser!.canTakeItem) {
       showDialog(
         context: context,
@@ -54,7 +53,6 @@ class _BrowseScreenState extends State<BrowseScreen> {
       return;
     }
 
-    // ── User is allowed to take ──
     setState(() {
       item.status = 'taken';
       item.takenBy = currentUser!.username;
@@ -78,8 +76,6 @@ class _BrowseScreenState extends State<BrowseScreen> {
 
     return Scaffold(
       backgroundColor: kCream,
-
-      // ── AppBar ──
       appBar: AppBar(
         backgroundColor: kNavy,
         foregroundColor: kWhite,
@@ -108,7 +104,6 @@ class _BrowseScreenState extends State<BrowseScreen> {
         ],
       ),
 
-      // ── Donate FAB ──
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => Navigator.push(
           context,
@@ -126,8 +121,6 @@ class _BrowseScreenState extends State<BrowseScreen> {
       body: Center(
         child: Container(
           constraints: const BoxConstraints(maxWidth: 700),
-
-          // ── SingleChildScrollView ──
           child: SingleChildScrollView(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 100),
             child: globalItems.isEmpty
@@ -152,7 +145,6 @@ class _BrowseScreenState extends State<BrowseScreen> {
                   ),
                 )
 
-              // ── Column of cards ──
               : Column(
                   children: globalItems.map((item) {
                     return _ItemCard(
@@ -168,7 +160,6 @@ class _BrowseScreenState extends State<BrowseScreen> {
   }
 }
 
-// ── Item Card Widget ──
 class _ItemCard extends StatelessWidget {
   final Item item;
   final VoidCallback onTake;
@@ -201,7 +192,6 @@ class _ItemCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 
-          // ── Item image ──
           ClipRRect(
             borderRadius: const BorderRadius.vertical(top: Radius.circular(14)),
             child: item.imageUrl != null
@@ -227,10 +217,8 @@ class _ItemCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
 
-                // ── Status and category row ──
                 Row(
                   children: [
-                    // Status badge
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
@@ -251,7 +239,6 @@ class _ItemCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 8),
-                    // Category badge
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
@@ -271,7 +258,7 @@ class _ItemCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
 
-                // ── Item name ──
+          
                 Text(
                   item.name,
                   style: const TextStyle(
@@ -281,8 +268,6 @@ class _ItemCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 6),
-
-                // ── Description ──
                 Text(
                   item.description,
                   style: const TextStyle(
@@ -292,17 +277,12 @@ class _ItemCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 14),
-
-                // ── Divider ──
                 const Divider(color: kBorder, height: 1),
                 const SizedBox(height: 12),
 
-                // ── Footer row: donor + button ──
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-
-                    // Donor info
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -336,7 +316,6 @@ class _ItemCard extends StatelessWidget {
                       ],
                     ),
 
-                    // ── Take button ──
                     ElevatedButton(
                       onPressed: isTaken ? null : onTake,
                       style: ElevatedButton.styleFrom(

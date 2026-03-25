@@ -68,8 +68,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     return Scaffold(
       backgroundColor: kCream,
-
-      // ── AppBar ──
       appBar: AppBar(
         backgroundColor: kNavy,
         foregroundColor: kWhite,
@@ -90,14 +88,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: Center(
         child: Container(
           constraints: const BoxConstraints(maxWidth: 560),
-
-          // ── SingleChildScrollView ──
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(20),
             child: Column(
               children: [
 
-                // ── Profile card ──
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(24),
@@ -109,7 +104,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Column(
                     children: [
 
-                      // Avatar with first letter
                       Container(
                         width: 72,
                         height: 72,
@@ -131,7 +125,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       const SizedBox(height: 12),
 
-                      // Username
                       Text(
                         user.username,
                         style: const TextStyle(
@@ -142,7 +135,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       const SizedBox(height: 4),
 
-                      // Bio
                       if (user.bio.isNotEmpty)
                         Text(
                           user.bio,
@@ -155,14 +147,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       const SizedBox(height: 4),
 
-                      // Join date
                       Text(
                         'Joined ${_formatDate(user.joinedDate)}',
                         style: const TextStyle(fontSize: 11, color: Colors.grey),
                       ),
                       const SizedBox(height: 20),
 
-                      // ── Stats row (only donated and taken) ──
                       Row(
                         children: [
                           Expanded(
@@ -188,7 +178,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 const SizedBox(height: 16),
 
-                // ── Donate gate status ──
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(16),
@@ -247,7 +236,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 const SizedBox(height: 16),
 
-                // ── Menu options ──
                 _menuItem(
                   icon: Icons.history,
                   label: 'My History',
